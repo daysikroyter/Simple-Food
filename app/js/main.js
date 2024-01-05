@@ -1,5 +1,12 @@
 $(function(){
 
+  $('.reviews__slider').slick({
+    dots: true,
+    arrows: false,
+    autoplay: true,
+    fade: true
+  });
+
   $('.tab').on('click', function (e) {
     e.preventDefault();
 

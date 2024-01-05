@@ -1,6 +1,7 @@
 @import 'vars';
 @import 'fonts';
 @import 'reset';
+@import 'libs';
 @import 'global';
 
 // header
@@ -511,6 +512,193 @@
 
 svg {
   transition: transform 0.5s ease;
+}
+
+// reviews
+
+.reviews {
+
+  &__title {
+    margin-bottom: 45px;
+  }
+
+  &__slider {
+    max-width: 990px;
+    margin: 0 auto;
+    padding-bottom: 82px;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  &__img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__blockquote {
+    margin-right: 40px;
+    max-width: 570px;
+  }
+
+  &__text {
+    position: relative;
+    @extend %rubik-italic;
+    margin-bottom: 30px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 20px;
+      background-image: url('../images/icons/quotes.svg');
+      @extend %bg;
+    }
+
+    &::before {
+      left: -36px;
+      top: 0;
+    }
+
+    &::after {
+      right: -36px;
+      bottom: 0;
+      transform: scale(-1, 1);
+    }
+
+  }
+
+  &__cite {
+    @extend %rubik-500;
+    font-style: normal;
+    line-height: 1.3;
+    color: $accent;
+
+    span {
+      display: block;
+      font-size: 14px;
+      padding-top: 15px;
+      color: $default;
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    li button {
+      width: 15px;
+      height: 15px;
+      background-color: #c2c2c2;
+      font-size: 0;
+      border-radius: 15px;
+      transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
+      &:focus {
+        box-shadow: 0px 0px 0px 2px #FF6838;
+      }
+
+      &:hover {
+        background-color: #FFF2ED;
+        box-shadow: 0px 0px 0px 2px rgba(255, 122, 80, 0.70);
+      }
+
+      &:active {
+        background-color: #ffae94;
+        box-shadow: none;
+      }
+    }
+
+    .slick-active button {
+      background-color: $accent;
+    }
+  }
+}
+
+// app
+
+.app {
+  padding-bottom: 120px;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__content {
+    max-width: 538px;
+  }
+
+  &__title {
+    margin-bottom: 45px;
+    text-align: left;
+  }
+
+  &__text {
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__link {
+    height: 40px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 40px;
+      @extend %bg;
+    }
+  }
+
+  &__link--appstore {
+    width: 120px;
+
+    &::before {
+      background-image: url('../images/icons/appstore.svg');
+    }
+  }
+
+  &__link--googleplay {
+    width: 135px;
+
+    &::before {
+      background-image: url('../images/icons/googleplay.svg');
+    }
+  }
+
+  &__img {
+    max-width: 570px;
+    height: 380px;
+    object-fit: cover;
+  }
 }
 
 // footer
