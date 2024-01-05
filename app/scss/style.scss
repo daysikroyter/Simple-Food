@@ -119,7 +119,7 @@
 
   &__inner {
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 47%;
     background-position: right center;
   }
 
@@ -330,7 +330,188 @@
   }
 }
 
-//
+// features
+
+.features {
+
+  &__inner {
+    max-width: 1030px;
+    margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: 42%;
+    background-position: left center;
+  }
+
+  &__box {
+    max-width: 470px;
+    margin-left: auto;
+    padding: 58px 0;
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    opacity: 0.9;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    font-size: 24px;
+    color: $title;
+    padding-left: 64px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      width: 34px;
+      height: 34px;
+      @extend %bg;
+    }
+
+    &:first-child::before {
+      background-image: url('../images/icons/watch.svg');
+    }
+
+    &:nth-child(2)::before {
+      background-image: url('../images/icons/delivery.svg');
+    }
+
+    &:last-child::before {
+      background-image: url('../images/icons/shop.svg');
+    }
+  }
+
+  &__link {
+    padding: 12px 32px;
+    background-color: $accent;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0.54px;
+    border-radius: 6px;
+  }
+}
+
+// restaurants
+
+.restaurants {
+
+  &__title {
+    margin-bottom: 45px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__item {
+    border-radius: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.5s ease;
+
+    &:hover {
+      box-shadow: 0px 3px 15px 0px rgba(255, 104, 56, 0.50);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  &__box {
+    padding: 15px 20px 20px;
+  }
+
+  &__item-title {
+    @extend %rubik-400;
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__time {
+    padding-left: 32px;
+    position: relative;
+    font-size: 18px;
+    opacity: 0.9;
+    line-height: 1.66;
+    @extend %rubik-300;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      width: 22px;
+      height: 22px;
+      @extend %bg;
+      background-image: url('../images/icons/timer.svg');
+    }
+  }
+
+  &__link {
+    width: 79px;
+    height: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $accent;
+    border-radius: 20px;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
+    &:focus {
+      path {
+        fill: $accent;
+      }
+    }
+
+    &:hover {
+      background-color: #fff;
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.70);
+
+      svg {
+        transform: translateX(20px);
+      }
+
+      path {
+        fill: $accent;
+      }
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
+svg {
+  transition: transform 0.5s ease;
+}
 
 // footer
 
