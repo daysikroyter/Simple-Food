@@ -2,9 +2,11 @@ $(function(){
 
   $('.reviews__slider').slick({
     dots: true,
-    arrows: false,
+    arrows: true,
     autoplay: true,
-    fade: true
+    fade: true,
+    prevArrow: '<button type="button" class="slick-btn slick-prev"><svg class="arrow"><use xlink:href="images/icons/sprites/sprite.svg#prev-arrow"></use></svg></button>',
+    nextArrow: '<button type="button" class="slick-btn slick-next"><svg class="arrow"><use xlink:href="images/icons/sprites/sprite.svg#prev-arrow"></use></svg></button>',
   });
 
   $('.tab').on('click', function (e) {

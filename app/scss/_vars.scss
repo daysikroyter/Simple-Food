@@ -1,25 +1,35 @@
 $default: #31352B;
-$accent: #FF6838;
+$accent: #ff6838;
 $title: #363853;
+$white: #fff;
+$tab-hover: #ff7a501a;
+$tab-active: #ff683833;
+$border: #ececec;
+$black: #000;
+$dot-hover: #FFF2ED;
+$btn-bg: #ffae94;
+$dot-bg: #c2c2c2;
+$main-bg: #f9faff;
+$btn-main-bg: #ff7a50;
 
 %rubik-300 {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 300;
 }
 
 %rubik-400 {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 400;
 }
 
 %rubik-italic {
-  font-family: 'Rubik-Italic', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-style: italic;
   font-weight: 400;
 }
 
 %rubik-500 {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: 500;
 }
 
@@ -27,4 +37,31 @@ $title: #363853;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+%flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flexjustify {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%pseudo {
+  content: '';
+  position: absolute;
+  display: block;
+}
+
+%btn {
+  background-color: $accent;
+  color: $white;
+  padding: 12px 32px;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: 0.54px;
 }
