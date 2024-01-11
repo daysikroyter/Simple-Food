@@ -38,6 +38,14 @@ body {
 
 .section {
   padding-top: 120px;
+
+  @include mq('tablet-3') {
+    padding-top: 70px;
+  }
+
+  @include mq('tablet') {
+    padding-top: 40px;
+  }
 }
 
 .title {
@@ -47,6 +55,14 @@ body {
   color: $title;
   text-align: center;
   @include line-clamp(3);
+
+  @include mq('tablet-2') {
+    font-size: 30px;
+  }
+
+  @include mq('phone-2') {
+    font-size: 24px;
+  }
 }
 
 .link {
@@ -59,6 +75,10 @@ body {
 
   &:hover {
     color: $accent;
+
+    @include mq('tablet-3') {
+      color: $default;
+    }
   }
 
   &:active {
@@ -74,6 +94,11 @@ body {
   background-color: $accent;
   transition: box-shadow 0.5s ease, background-color 0.5s ease, color 0.5s ease;
 
+  @include mq('phone-2') {
+    font-size: 14px;
+    letter-spacing: 0.42px;
+  }
+
   &:focus {
     background-color: rgba($btn-main-bg, 0.1);
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
@@ -84,6 +109,12 @@ body {
     color: $accent;
     background-color: $white;
     box-shadow: 0 0 0 2px rgba($accent, 0.7);
+
+    @include mq('tablet-3') {
+      color: $white;
+      background-color: $accent;
+      box-shadow: 0 0 0 2px transparent;
+    }
   }
 
   &:active {
@@ -103,6 +134,10 @@ body {
 
   &:hover {
     background-color: $accent;
+
+    @include mq('tablet-3') {
+      background-color: transparent;
+    }
   }
 
   &:active {
@@ -130,6 +165,12 @@ body {
   &:active::before {
     opacity: 0;
   }
+
+  &:hover::before {
+    @include mq('tablet-3') {
+      opacity: 1;
+    }
+  }
 }
 
 .ico {
@@ -146,6 +187,16 @@ body {
 .tab-ico {
   width: 44px;
   height: 44px;
+
+  @include mq('phone-3') {
+    width: 30px;
+    height: 30px;
+  }
+
+  @include mq('phone-3') {
+    width: 20px;
+    height: 20px;
+  }
 
   use {
     fill: $title;
@@ -191,6 +242,11 @@ body {
     &:hover {
       background-color: $dot-hover;
       box-shadow: 0 0 0 2px rgba($accent, 0.70);
+
+      @include mq('tablet-3') {
+        background-color: $dot-bg;
+        box-shadow: none;
+      }
     }
 
     &:active {
@@ -252,6 +308,10 @@ body {
 
   &:hover {
     box-shadow: 0 0 0 1px $accent;
+
+    @include mq('tablet-3') {
+      box-shadow: 0 0 0 1px $border;
+    }
   }
 
   &__img {
@@ -294,12 +354,33 @@ body {
   height: 100%;
   max-width: 370px;
 
+  @include mq('tablet-3') {
+    max-width: 100%;
+  }
+
+  @include mq('tablet') {
+    margin: 0 10px;
+  }
+
+  @include mq('phone-2') {
+    margin: 0 5px;
+  }
+
   &:hover {
     box-shadow: 0 3px 15px 0 rgba($accent, 0.50);
+
+    @include mq('tablet-3') {
+      box-shadow: 0 3px 3px 0 rgba($black, 0.10);
+    }
   }
 
   &__img {
     object-fit: cover;
+    border-radius: 10px 10px 0 0;
+
+    @include mq('tablet-3') {
+      width: 100%;
+    }
   }
 
   &__box {
@@ -353,8 +434,16 @@ body {
       .arrow-right-ico {
         transform: translateX(20px);
 
+        @include mq('tablet-3') {
+          transform: translateX(0);
+        }
+
         use {
           fill: $accent;
+
+          @include mq('tablet-3') {
+            fill: $white;
+          }
         }
       }
     }
@@ -378,9 +467,17 @@ body {
     background-color: $border;
     @extend %flex;
 
+    &:hover {
+      background-color: $border;
+    }
+
     &:hover .social-ico {
       use {
         fill: $white;
+
+        @include mq('tablet-3') {
+          fill: $default;
+        }
       }
     }
 
@@ -389,5 +486,21 @@ body {
         fill: $accent;
       }
     }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgba($black, 0.50);
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  &--active {
+    z-index: 4;
+    opacity: 1;
+    visibility: visible;
   }
 }

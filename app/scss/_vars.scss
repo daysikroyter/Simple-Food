@@ -11,6 +11,7 @@ $btn-bg: #ffae94;
 $dot-bg: #c2c2c2;
 $main-bg: #f9faff;
 $btn-main-bg: #ff7a50;
+$menu: #EEEFF3;
 
 %rubik-300 {
   font-family: 'Rubik', sans-serif;
@@ -64,4 +65,16 @@ $btn-main-bg: #ff7a50;
   font-size: 18px;
   line-height: 1.3;
   letter-spacing: 0.54px;
+}
+
+%padding {
+  padding: 25px 15px;
+}
+
+%section-bg {
+  width: 100%;
+  height: 100%;
+  background: rgba($main-bg, 0.85);
+  z-index: 0;
+  opacity: 0;
 }
