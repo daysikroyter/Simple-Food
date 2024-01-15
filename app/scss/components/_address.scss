@@ -1,0 +1,70 @@
+.address {
+  font-style: normal;
+  width: 195px;
+  margin-right: 64px;
+
+  @include mq('tablet-3') {
+    margin-right: 0;
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    @include mq('phone-2') {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 2;
+    padding-left: 31px;
+    position: relative;
+
+
+    @include mq('phone-2') {
+      line-height: 40px;
+    }
+
+    &::before {
+      @extend %pseudo;
+      width: 24px;
+      height: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      @extend %bg;
+      background-size: inherit;
+    }
+
+    &--location::before {
+      background-image: url('../images/icons/location.svg');
+    }
+
+    &--phone::before {
+      background-image: url('../images/icons/phone.svg');
+    }
+
+    &--email::before {
+      background-image: url('../images/icons/message.svg');
+    }
+  }
+
+  .social__link:hover {
+    background-color: $accent;
+
+    .social__ico use {
+      fill: $white;
+    }
+  }
+
+  .social__link:active {
+    background-color: $dot-hover;
+
+    .social__ico use {
+      fill: $accent;
+    }
+  }
+}

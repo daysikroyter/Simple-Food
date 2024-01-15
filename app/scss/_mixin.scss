@@ -14,17 +14,6 @@
   }
 }
 
-$breakpoints: (
-  "phone-s": 321px,
-  "phone": 376px,
-  "phone-2": 481px,
-  "phone-3": 561px,
-  "tablet": 769px,
-  "tablet-2": 891px,
-  "tablet-3": 993px,
-  "desktop": 1050px
-);
-
 @mixin mq($width, $type: max) {
   @if map_has_key($breakpoints, $width) {
     $width: map_get($breakpoints, $width);
@@ -34,6 +23,20 @@ $breakpoints: (
     }
 
     @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin mq-height($height, $type: max) {
+  @if map_has_key($breakpoints, $height) {
+    $height: map_get($breakpoints, $height);
+
+    @if $type ==max {
+      $height: $height - 1px;
+    }
+
+    @media only screen and (#{$type}-height: $height) {
       @content;
     }
   }

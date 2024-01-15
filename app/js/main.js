@@ -29,16 +29,19 @@ $(function(){
   $('.burger-btn').on('click', function() {
     $('.menu-burger').addClass('menu-burger--active');
     $('.overlay').addClass('overlay--active');
+    $('body').addClass('lock');
   });
   
   $('.menu-burger__btn').on('click', function() {
     $('.menu-burger').removeClass('menu-burger--active');
     $('.overlay').removeClass('overlay--active');
+    $('body').removeClass('lock');
   });
   
   $('.overlay').on('click', function() {
     $('.menu-burger').removeClass('menu-burger--active'); 
     $('.overlay').removeClass('overlay--active');
+    $('body').removeClass('lock');
   });
 
   $('.reviews__slider').slick({
@@ -46,6 +49,7 @@ $(function(){
     arrows: true,
     autoplay: true,
     fade: true,
+    infinite: false,
     prevArrow: '<button type="button" class="slick-btn slick-prev"><svg class="arrow"><use xlink:href="images/icons/sprites/sprite.svg#prev-arrow"></use></svg></button>',
     nextArrow: '<button type="button" class="slick-btn slick-next"><svg class="arrow"><use xlink:href="images/icons/sprites/sprite.svg#prev-arrow"></use></svg></button>',
     responsive: [

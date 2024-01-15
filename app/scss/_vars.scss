@@ -13,6 +13,19 @@ $main-bg: #f9faff;
 $btn-main-bg: #ff7a50;
 $menu: #EEEFF3;
 
+$breakpoints: (
+  "phone-s": 321px,
+  "phone": 376px,
+  "phone-2": 481px,
+  "phone-3": 561px,
+  "tablet": 769px,
+  "tablet-2": 891px,
+  "tablet-3": 993px,
+  "desktop": 1050px,
+  "mobile-height": 576px,
+  "mobile-height-2": 440px
+);
+
 %rubik-300 {
   font-family: 'Rubik', sans-serif;
   font-weight: 300;

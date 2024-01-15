@@ -1,0 +1,31 @@
+.nav {
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+
+  @include mq-height('mobile-height') {
+    padding: 15px 0;
+  }
+
+  @include mq('tablet') {
+    padding: 25px 0;
+  }
+
+  @include mq('phone-2') {
+    padding: 14px 0;
+  }
+
+  &__menu.menu {
+    margin: 0 52px 0 auto;
+
+    @include mq('tablet') {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include mq('phone-2') {
+      width: 115px;
+    }
+  }
+}

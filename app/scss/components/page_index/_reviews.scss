@@ -1,0 +1,257 @@
+.reviews {
+
+  &__title {
+    margin-bottom: 45px;
+
+    @include mq('phone-2') {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__slider {
+    max-width: 990px;
+    margin: 0 auto;
+    padding-bottom: 82px;
+
+    @include mq('phone-3') {
+      padding-bottom: 0;
+    }
+  }
+
+  &__inner {
+    @extend %flexjustify;
+    gap: 20px;
+
+    @include mq('tablet') {
+      gap: 20px 0;
+    }
+
+    @include mq('phone-3') {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    border-radius: 50%;
+
+    @include mq('tablet-2') {
+      height: 250px;
+      width: 250px;
+    }
+
+    @include mq('tablet') {
+      height: 175px;
+      width: 175px;
+    }
+
+    @include mq('phone-3') {
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+  &__blockquote {
+    max-width: 650px;
+    padding: 0 40px;
+    position: relative;
+
+
+    &::before,
+    &::after {
+      @extend %pseudo;
+      width: 24px;
+      height: 20px;
+      background-image: url('../images/icons/quotes.svg');
+      @extend %bg;
+    }
+
+    &::before {
+      left: 0px;
+      top: 0;
+    }
+
+    &::after {
+      right: 0px;
+      bottom: 0;
+      transform: scale(-1, 1);
+    }
+  }
+
+  &__text {
+    @extend %rubik-italic;
+    margin-bottom: 30px;
+    @include line-clamp(10);
+
+    @include mq('tablet') {
+      font-size: 16px;
+    }
+
+    @include mq('phone-3') {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__cite {
+    @extend %rubik-500;
+    font-style: normal;
+    line-height: 1.3;
+    color: $accent;
+    padding-left: 40px;
+    display: block;
+
+    @include mq('phone-2') {
+      font-size: 16px;
+    }
+
+    span {
+      display: block;
+      font-size: 14px;
+      padding-top: 15px;
+      color: $default;
+
+      @include mq('phone-2') {
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    li button {
+      width: 15px;
+      height: 15px;
+      background-color: $dot-bg;
+      font-size: 0;
+      border-radius: 15px;
+      transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
+      &:focus {
+        box-shadow: 0 0 0 2px $accent;
+      }
+
+      &:hover {
+        background-color: $dot-hover;
+        box-shadow: 0 0 0 2px rgba($accent, 0.70);
+
+        @include mq('tablet-3') {
+          background-color: $dot-bg;
+          box-shadow: none;
+        }
+      }
+
+      &:active {
+        background-color: $btn-bg;
+        box-shadow: none;
+      }
+    }
+
+    .slick-active button {
+      background-color: $accent;
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+
+  .slick-dots {
+    bottom: 15px;
+  }
+
+  .slick-btn {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    z-index: 5;
+    bottom: 5px;
+    left: 50%;
+    @extend %flex;
+    background-color: transparent;
+    border-radius: 34px;
+    border: 3px solid $dot-bg;
+    background-color: rgba($white, 0.01);
+    transition: border-color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+
+    @include mq('phone-3') {
+      top: 56px;
+    }
+
+    .arrow use {
+      transition: fill 0.5s ease;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($accent, 0.70);
+    }
+
+    &:hover {
+      background-color: $dot-hover;
+      border-color: $btn-bg;
+
+      @include mq('tablet-3') {
+        background-color: rgba($white, 0.01);
+        border-color: $dot-bg;
+      }
+
+      .arrow use {
+        fill: $btn-bg;
+
+        @include mq('tablet-3') {
+          fill: $dot-bg;
+        }
+      }
+    }
+
+    &:active {
+      border-color: $dot-hover;
+      background-color: $dot-hover;
+      box-shadow: none;
+
+      .arrow use {
+        fill: $btn-main-bg;
+      }
+    }
+  }
+
+  .slick-btn.slick-disabled {
+    border-color: $btn-main-bg;
+
+    .arrow use {
+      fill: $btn-main-bg;
+    }
+  }
+
+  .slick-prev {
+    transform: translateX(-110px);
+
+    @include mq('phone-3') {
+      transform: translateX(-138px);
+    }
+  }
+
+  .slick-next {
+    transform: translateX(75px);
+
+    @include mq('phone-3') {
+      transform: translateX(100px);
+    }
+
+    .arrow {
+      transform: rotate(-180deg);
+    }
+  }
+}
