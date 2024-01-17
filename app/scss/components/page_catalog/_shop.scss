@@ -1,0 +1,443 @@
+@import '../product-card';
+@import '../pagination';
+
+.shop {
+  padding-top: 60px;
+
+  @include mq('tablet') {
+    padding-top: 40px;
+  }
+
+  &__nav {
+    @extend %flexjustify;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+
+    @include mq('tablet') {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__nav-btn {
+    background-color: $checkbox;
+    @extend %bg;
+    background-image: url('../images/icons/filter-btn.svg');
+    background-size: 32px 36px;
+    width: 47px;
+    height: 47px;
+    border-radius: 3px;
+    display: none;
+
+    @include mq('tablet') {
+      display: block;
+    }
+  }
+
+  &__nav-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    @include mq('tablet') {
+      gap: 10px;
+    }
+  }
+
+  .jq-selectbox.jqselect {
+    z-index: 0;
+  }
+
+  &__filter-sort {
+    cursor: pointer;
+
+    &:focus+.jq-selectbox__select {
+      border: 1px solid $accent;
+    }
+  }
+
+  .jq-selectbox {
+
+    &__select,
+    &__dropdown {
+      border: 1px solid $dot-bg;
+      border-bottom-color: $dot-bg;
+      border-radius: 3px;
+      background: $white;
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.42px;
+      color: $default;
+      text-shadow: none;
+    }
+
+    &__select {
+      height: 47px;
+      transition: border-color 0.5s ease, color 0.5s ease;
+      padding: 15px 41px 15px 15px;
+      box-shadow: none;
+      position: relative;
+
+      &:focus {
+        border-color: $accent;
+      }
+
+      &:hover {
+        border-color: $accent;
+        color: $accent;
+
+        .jq-selectbox__trigger-arrow {
+          filter: invert(46%) sepia(54%) saturate(818%) hue-rotate(329deg) brightness(102%) contrast(101%);
+
+          @include mq('tablet-3') {
+            filter: invert(79%) sepia(0%) saturate(2065%) hue-rotate(319deg) brightness(107%) contrast(77%);
+          }
+        }
+
+        @include mq('tablet-3') {
+          border-color: $dot-bg;
+          color: $default;
+        }
+      }
+    }
+
+    &__trigger {
+      border: none;
+    }
+
+    &__trigger-arrow {
+      width: 5px;
+      height: 10px;
+      transform: rotate(90deg);
+      background-image: url('../images/icons/angle-right.svg');
+      @extend %bg;
+      position: absolute;
+      top: 18px;
+      right: 15px;
+      border: none;
+      filter: invert(79%) sepia(0%) saturate(2065%) hue-rotate(319deg) brightness(107%) contrast(77%);
+      transition: filter 0.5s ease;
+    }
+
+    &__dropdown {
+      width: auto;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      margin-top: 3px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.10);
+
+      li {
+        padding: 10px;
+        padding: 10px 41px 10px 15px;
+        transition: background-color 0.5s ease;
+
+        &:hover {
+          background-color: $accent;
+          color: $white;
+
+          @include mq('tablet-3') {
+            color: $default;
+            background-color: $white;
+          }
+        }
+      }
+
+      li.selected {
+        background-color: $accent;
+        color: $white;
+      }
+    }
+
+    &.dropdown.opened {
+      .jq-selectbox__dropdown {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+    gap: 30px;
+
+    @include mq('desktop') {
+      gap: 10px;
+    }
+  }
+
+  &__filters {
+    width: 270px;
+
+    @include mq('tablet') {
+      display: none;
+    }
+  }
+
+  &__filters-item {
+    border-radius: 5px;
+    border: 1px solid $border;
+    background-color: $white;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+  &__title {
+    padding: 15px;
+    border-bottom: 1px solid $border;
+    color: $title;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+  }
+
+  &__filters-content {
+    padding: 25px 15px;
+  }
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    line-height: 1.3;
+    letter-spacing: 0.54px;
+  }
+
+  &__filters-label {
+    display: block;
+
+    &:not(:first-child) {
+      margin-top: 13px;
+    }
+  }
+
+  &__filters-input {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
+
+    &:focus+.shop__filters-checkbox {
+      border-color: $accent;
+    }
+
+    &:hover+.shop__filters-checkbox {
+      border-color: $accent;
+
+      @include mq('tablet-3') {
+        border-color: $border;
+      }
+    }
+
+    &:hover+.shop__filters-checkbox+.shop__filters-text {
+      color: $accent;
+
+      @include mq('tablet-3') {
+        color: $default;
+      }
+    }
+
+    &:checked+.shop__filters-checkbox {
+      border-color: $title;
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &:checked+.shop__filters-checkbox+.shop__filters-text {
+      color: $default;
+    }
+  }
+
+  &__filters-checkbox {
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    border: 1px solid $border;
+    background-color: $checkbox;
+    position: absolute;
+    margin-top: 4px;
+    transition: border-color 0.5s ease;
+
+    &::before {
+      @extend %pseudo;
+      width: 12px;
+      height: 9px;
+      background-image: url('../images/icons/checkmark.svg');
+      @extend %bg;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+  &__filters-text {
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.54px;
+    padding-left: 36px;
+    transition: color 0.5s ease;
+  }
+
+  .irs {
+    margin-top: 6px;
+
+    &-min,
+    &-max,
+    &-from,
+    &-to,
+    &-single {
+      display: none;
+    }
+
+    &-line {
+      height: 2px;
+      background-color: $dot-bg;
+    }
+
+    &-bar {
+      height: 2px;
+      background-color: $accent;
+    }
+
+    &-handle {
+      width: 18px;
+      background-color: $accent;
+      border-radius: 18px;
+      top: 17px;
+
+      i:first-child {
+        display: none;
+      }
+    }
+  }
+
+  &__rangle-label {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    color: $dot-bg;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.48px;
+  }
+
+  &__filters-inner {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+
+  &__filters-price {
+    display: block;
+    padding: 12px 15px;
+    width: 70px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #FAEDED;
+    background: #FAEDED;
+    color: $default;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__content-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding-bottom: 60px;
+
+    @include mq('desktop') {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include mq('tablet-2') {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      padding-bottom: 30px;
+    }
+
+    @include mq('phone-3') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 5px;
+    }
+  }
+
+  .filter-menu {
+    position: fixed;
+    width: 320px;
+    height: 100vh;
+    background-color: $white;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow-y: auto;
+    padding: 80px 0;
+    display: none;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+
+    &--active {
+      transform: translateX(0);
+    }
+
+    @include mq('tablet') {
+      display: block;
+    }
+
+    .shop__filters {
+      @include mq('tablet') {
+        display: block;
+      }
+    }
+
+    &__btn {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: $checkbox;
+      border-radius: 3px;
+      top: 20px;
+      right: 20px;
+
+      &::before,
+      &::after {
+        @extend %pseudo;
+        width: 20px;
+        height: 2px;
+        background-color: $title;
+        left: 10px;
+      }
+
+      &::before {
+        top: 19px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 19px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

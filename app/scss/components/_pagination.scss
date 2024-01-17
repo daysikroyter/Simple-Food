@@ -1,0 +1,96 @@
+.pagination {
+  @extend %flex;
+  gap: 6px;
+
+  &__item-responsive {
+    display: block;
+
+    @include mq('phone-3') {
+      display: none;
+    }
+  }
+
+  &__link {
+    width: 48px;
+    height: 48px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    background-color: $checkbox;
+    color: $title;
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: 0.54px;
+    box-shadow: 0 0 0 2px transparent;
+    @extend %flex;
+
+    &--active {
+      transition: border-color 0.5s ease;
+      border-color: $title;
+    }
+  }
+
+  &__element {
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+
+    &.pagination__link--active:hover {
+      border-color: transparent;
+
+      @include mq('tablet-3') {
+        border-color: $title;
+      }
+    }
+
+    &:hover {
+      background-color: $accent;
+      color: $white;
+
+      @include mq('tablet-3') {
+        color: $title;
+        background-color: $checkbox;
+      }
+
+      &::before {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(120deg) brightness(104%) contrast(102%);
+
+        @include mq('tablet-3') {
+          filter: invert(19%) sepia(44%) saturate(440%) hue-rotate(196deg) brightness(93%) contrast(90%);
+        }
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $accent;
+    }
+
+    &.pagination__link--active:focus {
+      border-color: transparent;
+    }
+
+    &:active {
+      box-shadow: 0 -1px 4px 2px rgba($black, 0.15) inset;
+      background-color: $checkbox;
+      color: $title;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+
+    &::before {
+      @extend %pseudo;
+      @extend %bg;
+      background-image: url('../images/icons/next-pagination.svg');
+      width: 10px;
+      height: 18px;
+      transition: filter 0.5s ease;
+    }
+
+    &--prev::before {
+      transform: scale(-1, 1);
+    }
+
+    &.pagination__arrow--disabled::before {
+      filter: invert(92%) sepia(1%) saturate(0%) hue-rotate(151deg) brightness(87%) contrast(85%);
+    }
+  }
+}

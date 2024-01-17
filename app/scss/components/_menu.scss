@@ -9,15 +9,5 @@
     &:active {
       text-shadow: 2px 2px 5px rgba($default, 0.5);
     }
-
-    &--active {
-      color: $accent;
-
-      &:hover {
-        @include mq('tablet-3') {
-          color: $accent;
-        }
-      }
-    }
   }
 }

@@ -1,7 +1,22 @@
 $(function(){
 
+  $('.shop__range-slide').ionRangeSlider({
+    type: "double",
+    prefix: "$",
+    onStart: function (data) {
+      $('.shop__filters-from').text(data.from);
+      $('.shop__filters-to').text(data.to);
+    },
+    onChange: function (data) {
+      $('.shop__filters-from').text(data.from);
+      $('.shop__filters-to').text(data.to);
+    },
+  });
+
+  $('.select-style').styler();
+
   function initSlick() {
-    $('.restaurants__list').slick({
+    $('.restaurants__list, .promotions__list').slick({
       arrows: false,
       dots: true,
       slidesToShow: 1
@@ -9,8 +24,8 @@ $(function(){
   }
 
   function destroySlick() {
-    if ($('.restaurants__list').hasClass('slick-initialized')) {
-      $('.restaurants__list').slick('unslick');
+    if ($('.restaurants__list, .promotions__list').hasClass('slick-initialized')) {
+      $('.restaurants__list, .promotions__list').slick('unslick');
     }
   }
 
@@ -31,15 +46,28 @@ $(function(){
     $('.overlay').addClass('overlay--active');
     $('body').addClass('lock');
   });
+
+  $('.shop__nav-btn').on('click', function() {
+    $('.filter-menu').addClass('filter-menu--active');
+    $('.overlay').addClass('overlay--active');
+    $('body').addClass('lock');
+  });
   
   $('.menu-burger__btn').on('click', function() {
     $('.menu-burger').removeClass('menu-burger--active');
     $('.overlay').removeClass('overlay--active');
     $('body').removeClass('lock');
   });
+
+  $('.filter-menu__btn').on('click', function() {
+    $('.filter-menu').removeClass('filter-menu--active');
+    $('.overlay').removeClass('overlay--active');
+    $('body').removeClass('lock');
+  });
   
   $('.overlay').on('click', function() {
     $('.menu-burger').removeClass('menu-burger--active'); 
+    $('.filter-menu').removeClass('filter-menu--active');
     $('.overlay').removeClass('overlay--active');
     $('body').removeClass('lock');
   });
