@@ -285,7 +285,6 @@ body {
     border-radius: 50%;
 
     .social__link-ico {
-      filter: invert(17%) sepia(8%) saturate(878%) hue-rotate(42deg) brightness(96%) contrast(91%);
       @extend %bg;
       background-size: inherit;
       transition: filter 0.5s ease;

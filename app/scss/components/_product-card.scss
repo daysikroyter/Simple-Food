@@ -31,6 +31,7 @@
     margin-bottom: 10px;
     color: $default;
     @include line-clamp(2);
+    min-height: 36px;
   }
 
   &__price {

@@ -1,0 +1,664 @@
+.product {
+
+  &__inner {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 29px;
+
+    @include mq('tablet-3') {
+      flex-wrap: wrap;
+    }
+
+    @include mq('tablet') {
+      padding: 30px 0;
+    }
+  }
+
+  &__slider {
+    max-width: 610px;
+    width: 100%;
+    padding: 75px 105px;
+    border-radius: 5px;
+    background: $white;
+    box-shadow: 0 0 0 1px $border;
+
+    @include mq('tablet-3') {
+      max-width: 100%;
+    }
+
+    @include mq('tablet') {
+      padding: 50px;
+    }
+
+    @include mq('phone-3') {
+      padding: 22px;
+    }
+
+    @include mq('phone-m') {
+      padding: 0;
+    }
+  }
+
+  &__link {
+    width: 100%;
+
+    @include mq('phone-3') {
+      max-width: 300px;
+      max-height: 300px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    @include mq('phone-m') {
+      max-width: 290px;
+      max-height: 290px;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    margin: 0 auto;
+
+    @include mq('phone-3') {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    @include mq('phone-3') {
+      max-width: 290px;
+      max-height: 290px;
+    }
+  }
+
+  .product-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .product-prev {
+    left: -58px;
+    transform: scale(-1, 1) translateY(-50%);
+
+    @include mq('tablet') {
+      left: 0;
+    }
+
+    @include mq('tablet') {
+      left: -15px;
+    }
+  }
+
+  .product-next {
+    right: -58px;
+
+    @include mq('tablet') {
+      right: 0;
+    }
+
+    @include mq('tablet') {
+      right: -15px;
+    }
+  }
+
+  &__info {
+    max-width: 531px;
+    width: 100%;
+
+    @include mq('tablet-3') {
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 36px;
+
+    @include mq('tablet') {
+      font-size: 30px;
+    }
+
+    @include mq('phone-3') {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__price {
+    margin: 25px 0 20px;
+    font-size: 25px;
+    line-height: 1.4;
+    color: $title;
+    @extend %rubik-500;
+    display: block;
+
+    @include mq('phone-3') {
+      margin: 15px 0 20px;
+    }
+  }
+
+  &__form {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px 20px;
+    flex-wrap: wrap;
+  }
+
+  &__input {
+    background-color: $checkbox;
+    width: 160px;
+    height: 44px;
+    border: 1px solid transparent;
+    transition: border-color 0.5s ease;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: border-color 0.5s ease;
+  }
+
+  .jq-number.focused {
+    .jq-number__field {
+      border: none;
+    }
+
+    .product__input {
+      border-color: $accent;
+    }
+  }
+
+  .jq-number__field {
+    width: 68px;
+    margin: 0 45px;
+    border: none;
+    box-shadow: none;
+
+    input {
+      padding: 10px 17px;
+      text-align: center;
+      color: $title;
+      @extend %rubik-400;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: 0.6px;
+    }
+  }
+
+  .jq-number__spin {
+    background: $accent;
+    border: none;
+    width: 44px;
+    height: 44px;
+    top: 0;
+    box-shadow: none;
+
+    &::after {
+      width: 20px;
+      height: 20px;
+      border: none;
+      height: 2px;
+      width: 20px;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .jq-number__spin.plus {
+    border-radius: 0px 3px 3px 0px;
+    right: 0;
+
+    &::before {
+      @extend %pseudo;
+      height: 20px;
+      width: 2px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $white;
+    }
+  }
+
+  .jq-number__spin.minus {
+    border-radius: 3px 0px 0px 3px;
+    left: 0;
+  }
+
+  &__btn {
+    @extend %rubik-500;
+    @extend %submit;
+
+    .subscribe-ico {
+      width: 16px;
+      height: 16px;
+
+      use {
+        fill: none;
+        stroke: $white;
+        stroke-width: 1.5;
+        transition: stroke 0.5s ease;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .subscribe-ico use {
+        stroke: $accent;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: $title;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: 0.72px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $border-bottom;
+    margin-bottom: 20px;
+    @extend %rubik-400;
+
+    @include mq('phone-3') {
+      margin-bottom: 15px;
+      letter-spacing: 0.54px;
+      font-size: 18px;
+    }
+  }
+
+  &__container {
+    margin-bottom: 20px;
+
+    @include mq('phone-3') {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    color: $breadcrumbs;
+    font-size: 16px;
+    letter-spacing: 0.48px;
+  }
+
+  &__info-link {
+    @include mq('phone-3') {
+      font-size: 16px;
+    }
+  }
+
+  &__content {
+    border-top: 1px solid $border-bottom;
+  }
+
+  &__content-inner {
+    max-width: 690px;
+    margin: 0 auto;
+
+    @include mq('tablet-3') {
+      margin: 0;
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 60px;
+    padding: 30px 2px;
+    overflow-x: auto;
+
+    @include mq('tablet') {
+      gap: 30px;
+    }
+  }
+
+  &__tab {
+    font-size: 24px;
+    white-space: nowrap;
+
+    @include mq('tablet') {
+      font-size: 20px;
+    }
+
+    &.tab--active {
+      color: $accent;
+    }
+  }
+
+  &__content-item {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    opacity: 0;
+    transition: grid-template-rows 0.5s ease, opacity 0.5s ease;
+
+    &.tabs-content--active {
+      opacity: 1;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__descr-list,
+  &__table,
+  &__reviews {
+    min-height: 0;
+  }
+
+  &__descr {
+    opacity: 0.9;
+
+    @include mq('tablet') {
+      font-size: 16px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__tr {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    @include mq('tablet') {
+      font-size: 16px;
+
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__td {
+    opacity: 0.9;
+
+    &:first-child {
+      @extend %rubik-500;
+      opacity: 1;
+    }
+  }
+
+  .product {
+
+    &__reviews-title {
+      color: $title;
+      @extend %rubik-500;
+      font-size: 24px;
+      line-height: 1.2%;
+      letter-spacing: 0.72px;
+      margin-bottom: 50px;
+      margin-top: 10px;
+      display: block;
+
+      @include mq('tablet') {
+        font-size: 20px;
+        letter-spacing: 0.6px;
+        margin-bottom: 40px;
+      }
+    }
+
+    &__reviews-item {
+      &:not(:last-child) {
+        padding-bottom: 20px;
+        border-bottom: 1px solid $border-bottom;
+        margin-bottom: 25px;
+
+        @include mq('phone-3') {
+          padding-bottom: 15px;
+          margin-bottom: 15px;
+        }
+      }
+    }
+
+    &__reviews-list {
+      margin-bottom: 60px;
+
+      @include mq('phone-3') {
+        margin-bottom: 45px;
+      }
+    }
+
+    &__blockquote {
+      color: $breadcrumbs;
+    }
+
+    &__blockquote-inner {
+      display: flex;
+      align-items: center;
+      gap: 15px 25px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+
+      @include mq('phone-3') {
+        margin-bottom: 15px;
+      }
+    }
+
+    &__blockquote-img {
+      border-radius: 50%;
+    }
+
+    &__author {
+      display: block;
+      line-height: 1.2;
+      @extend %rubik-500;
+      margin-bottom: 5px;
+    }
+
+    &__time {
+      font-size: 18px;
+      line-height: 1.3;
+      letter-spacing: 0.54px;
+    }
+
+    &__star.jq-ry-container {
+      margin-left: auto;
+
+      @include mq('phone-3') {
+        display: block;
+        width: 100% !important;
+      }
+    }
+
+    &__blockquote-text {
+      padding-left: 2px;
+      margin-right: 2px;
+
+      @include mq('phone-3') {
+        font-size: 16px;
+      }
+    }
+
+    &__label {
+      font-size: 20px;
+      line-height: 1.3;
+      color: $breadcrumbs;
+
+      &--star {
+        display: flex;
+        gap: 5px 15px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      &--textarea {
+        grid-row: span 2;
+      }
+
+      &--checkbox {
+        position: relative;
+      }
+    }
+
+    &__form-star {
+      display: flex;
+      align-items: center;
+    }
+
+    &__form-box {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 10px 30px;
+      margin-bottom: 30px;
+      padding: 0 2px;
+
+      @include mq('tablet') {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    &__textarea {
+      height: 165px;
+      width: 400px;
+
+      &:hover::placeholder {
+        color: $title;
+
+        @include mq('tablet-3') {
+          color: $placeholder;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $accent;
+      }
+    }
+
+    &__textarea,
+    &__form-input {
+      display: block;
+      padding: 18px;
+      background-color: $white;
+      border-radius: 5px;
+      border: 1px solid $dot-bg;
+      margin-top: 15px;
+      @extend %rubik-400;
+      font-size: 16px;
+      line-height: 1.3;
+      color: $default;
+      transition: box-shadow 0.5s ease;
+
+      @include mq('tablet') {
+        width: 100%;
+      }
+
+
+      &::placeholder {
+        color: $placeholder;
+        @extend %rubik-400;
+        font-size: 16px;
+        line-height: 1.3;
+        transition: color 0.5s ease;
+      }
+    }
+
+    &__form-input {
+      height: 57px;
+      width: 260px;
+      margin-right: 2px;
+      width: 255px;
+
+      @include mq('tablet') {
+        width: 100%;
+      }
+
+      &:hover::placeholder {
+        color: $title;
+
+        @include mq('tablet-3') {
+          color: $placeholder;
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $accent;
+      }
+    }
+
+    &__input-checkbox {
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      clip: rect(0 0 0 0);
+
+      &:focus+.product__style-checkbox {
+        border-color: $accent;
+      }
+
+      &:hover+.product__style-checkbox {
+        border-color: $accent;
+
+        @include mq('tablet-3') {
+          border-color: $placeholder;
+        }
+      }
+
+      &:hover+.product__style-checkbox+.product__form-text {
+        color: $accent;
+
+        @include mq('tablet-3') {
+          color: $default;
+        }
+      }
+
+      &:checked+.product__style-checkbox {
+        border-color: $title;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      &:checked+.product__style-checkbox+.product__form-text {
+        color: $default;
+      }
+    }
+
+    &__style-checkbox {
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      border: 1px solid $placeholder;
+      background-color: $white;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: border-color 0.5s ease;
+
+      &::before {
+        @extend %pseudo;
+        width: 12px;
+        height: 9px;
+        background-image: url('../images/icons/checkmark.svg');
+        @extend %bg;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+    }
+
+    &__form-text {
+      padding-left: 34px;
+      display: block;
+      margin-bottom: 30px;
+      transition: color 0.5s ease;
+    }
+
+    &__form-btn {
+      padding: 12px 32px;
+      margin: 0 0 2px 2px;
+      font-size: 18px;
+      line-height: 1.3;
+      letter-spacing: 0.54px;
+    }
+  }
+}

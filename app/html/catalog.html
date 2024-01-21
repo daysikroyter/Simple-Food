@@ -1,12 +1,16 @@
 @include('components/_head.html', {
-"@pageTitle": "Catalog"
+"@pageTitle": "Блюда"
 })
 
-@include('components/_header.html')
+@include('components/_header.html', {
+  "activeClassDishess": "link--active"
+})
 
 <main class="main">
 
-  @include('components/_breadcrumbs.html')
+  @include('components/page_catalog/_breadcrumbs.html', {
+    "disabledClass": "breadcrumbs__link--disabled"
+  })
 
   @include('components/page_catalog/_shop.html')
 

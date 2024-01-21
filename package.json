@@ -9,6 +9,7 @@
   "author": "Mustang",
   "license": "ISC",
   "devDependencies": {
+    "@fancyapps/ui": "^5.0.33",
     "browser-sync": "^2.29.3",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
@@ -24,6 +25,7 @@
     "ion-rangeslider": "^2.3.1",
     "jquery": "^3.7.1",
     "jquery-form-styler": "^2.0.2",
+    "rateyo": "^2.3.2",
     "sass": "^1.69.5",
     "slick-carousel": "^1.8.1"
   }

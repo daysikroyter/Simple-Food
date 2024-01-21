@@ -83,18 +83,22 @@
             <h2 class="shop__title">
               Цена
             </h2>
-            <form class="shop__filters-form shop__filters-content" action="#">
-              <label class="shop__rangle-label">
+            <form class="shop__filters-form shop__filters-range shop__filters-content" action="#">
+              <div class="shop__rangle-box">
                 <span class="shop__filters-inner">
-                  от<span class="shop__filters-from shop__filters-price"></span><span
-                    class="shop__filters-currency">₴</span>
+                  от
+                  <input type="number" class="js-input-from shop__filters-price" value="0">
+                  <span class="shop__filters-currency">₴</span>
                 </span>
                 <span class="shop__filters-inner">
-                  до<span class="shop__filters-to shop__filters-price"></span><span
-                    class="shop__filters-currency">₴</span>
+                  до
+                  <input type="number" class="js-input-to shop__filters-price" value="0">
+                  <span class="shop__filters-currency">₴</span>
                 </span>
-              </label>
-              <input class="shop__range-slide" type="text" data-min="0" data-max="1200" data-from="100" data-to="1000">
+              </div>
+              <div class="range-slider">
+                <input type="text" class="js-range-slider" value="">
+              </div>
             </form>
           </li>
         </ul>
@@ -159,24 +163,28 @@
           <h2 class="shop__title">
             Цена
           </h2>
-          <form class="shop__filters-form shop__filters-content" action="#">
-            <label class="shop__rangle-label">
+          <form class="shop__filters-form shop__filters-range shop__filters-content" action="#">
+            <div class="shop__rangle-box">
               <span class="shop__filters-inner">
-                от<span class="shop__filters-from shop__filters-price"></span><span
-                  class="shop__filters-currency">₴</span>
+                от
+                <input type="number" class="js-input-from shop__filters-price" value="0">
+                <span class="shop__filters-currency">₴</span>
               </span>
               <span class="shop__filters-inner">
-                до<span class="shop__filters-to shop__filters-price"></span><span
-                  class="shop__filters-currency">₴</span>
+                до
+                <input type="number" class="js-input-to shop__filters-price" value="0">
+                <span class="shop__filters-currency">₴</span>
               </span>
-            </label>
-            <input class="shop__range-slide" type="text" data-min="0" data-max="1200" data-from="100" data-to="1000">
+            </div>
+            <div class="range-slider">
+              <input type="text" class="js-range-slider" value="">
+            </div>
           </form>
         </li>
       </ul>
       <div class="shop__content">
         <ul class="shop__content-list">
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/1.jpg"
                 alt="Чизбургер с листьями салата">
@@ -191,7 +199,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/2.jpg" alt="Бифбургер">
               <h3 class="product-card__title">
@@ -205,7 +213,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/3.jpg"
                 alt="Королевский чизбургер">
@@ -220,7 +228,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/4.jpg"
                 alt="Черный гамбургер">
@@ -235,7 +243,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/5.jpg" alt="Чикен бургер">
               <h3 class="product-card__title">
@@ -249,7 +257,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/1.jpg"
                 alt="Чизбургер с листьями салата">
@@ -264,7 +272,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/2.jpg" alt="Бифбургер">
               <h3 class="product-card__title">
@@ -278,7 +286,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/3.jpg"
                 alt="Королевский чизбургер">
@@ -293,7 +301,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/4.jpg"
                 alt="Черный гамбургер">
@@ -308,7 +316,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/5.jpg" alt="Чикен бургер">
               <h3 class="product-card__title">
@@ -322,7 +330,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/1.jpg"
                 alt="Чизбургер с листьями салата">
@@ -337,7 +345,7 @@
               </button>
             </article>
           </li>
-          <li class="popular-categories__item">
+          <li class="shop__content-item">
             <article class="product-card">
               <img class="product-card__img" width="140" height="140" src="images/products/2.jpg" alt="Бифбургер">
               <h3 class="product-card__title">

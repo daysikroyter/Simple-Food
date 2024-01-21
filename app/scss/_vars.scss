@@ -14,9 +14,12 @@ $btn-main-bg: #ff7a50;
 $menu: #EEEFF3;
 $breadcrumbs: #505050;
 $checkbox: #FAEDED;
+$border-bottom: #E4E4E4;
+$placeholder: #c1c1c1;
 
 $breakpoints: (
   "phone-s": 321px,
+  "phone-m": 366px,
   "phone": 376px,
   "phone-2": 481px,
   "phone-3": 561px,
@@ -92,4 +95,12 @@ $breakpoints: (
   background: rgba($main-bg, 0.85);
   z-index: 0;
   opacity: 0;
+}
+
+%submit {
+  display: flex;
+  gap: 0 15px;
+  align-items: center;
+  padding: 13px 38px;
+  font-size: 14px;
 }

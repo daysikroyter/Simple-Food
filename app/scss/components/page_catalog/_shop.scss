@@ -218,7 +218,7 @@
     display: block;
 
     &:not(:first-child) {
-      margin-top: 13px;
+      margin-top: 5px;
     }
   }
 
@@ -294,32 +294,39 @@
     transition: color 0.5s ease;
   }
 
-  .irs {
-    margin-top: 6px;
+  &__filters-range {
+    padding-bottom: 20px;
+  }
 
-    &-min,
-    &-max,
-    &-from,
-    &-to,
-    &-single {
+  .irs {
+
+    .irs-min,
+    .irs-max,
+    .irs-from,
+    .irs-to,
+    .irs-single {
       display: none;
     }
 
-    &-line {
+    .irs-line {
       height: 2px;
       background-color: $dot-bg;
+      top: 26px;
     }
 
-    &-bar {
+    .irs-bar {
       height: 2px;
+      top: 26px;
       background-color: $accent;
     }
 
-    &-handle {
+    .irs-handle {
       width: 18px;
+      height: 18px;
       background-color: $accent;
       border-radius: 18px;
       top: 17px;
+      border: none;
 
       i:first-child {
         display: none;
@@ -327,7 +334,7 @@
     }
   }
 
-  &__rangle-label {
+  &__rangle-box {
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -349,9 +356,26 @@
     width: 70px;
     text-align: center;
     border-radius: 3px;
-    border: 1px solid #FAEDED;
-    background: #FAEDED;
+    border: 1px solid $checkbox;
+    background: $checkbox;
     color: $default;
+    transition: border-color 0.5s ease;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:hover,
+    &:focus {
+      -moz-appearance: number-input;
+    }
+
+    &:focus {
+      border-color: $accent;
+    }
   }
 
   &__content {
