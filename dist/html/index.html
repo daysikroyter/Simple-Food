@@ -1,0 +1,27 @@
+@include('components/_head.html', {
+"@pageTitle": "Главная"
+})
+
+@include('components/_header.html', {
+  "activeClass": "link--active"
+})
+
+<main class="main">
+
+  @include('components/page_index/_hero.html')
+
+  @include('components/page_index/_popular-categories.html')
+
+  @include('components/page_index/_features.html')
+
+  @include('components/page_index/_restaurants.html')
+
+  @include('components/page_index/_reviews.html')
+
+  @include('components/_app.html')
+
+</main>
+
+@include('components/_footer.html')
+
+@include('components/_footer-scripts.html')
