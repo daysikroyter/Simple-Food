@@ -1,0 +1,111 @@
+@import '../restaurant-card';
+
+.promotions {
+  padding-bottom: 120px;
+
+  @include mq('tablet-3') {
+    padding-bottom: 70px;
+  }
+
+  @include mq('tablet') {
+    padding-bottom: 40px;
+  }
+
+  &__title {
+    text-align: left;
+    margin-bottom: 60px;
+
+    @include mq('tablet') {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    
+    .slick-list.draggable {
+      padding-bottom: 5px;
+    }
+    
+    @include mq('tablet-3') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    
+    @include mq('tablet') {
+      padding-bottom: 55px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  .restaurant-card {
+    &__box {
+      padding: 15px 20px;
+    }
+
+    &__title {
+      @include line-clamp(2);
+      margin-bottom: 0;
+      white-space: normal;
+    }
+
+    &__box {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .slick-dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+
+    li button {
+      width: 15px;
+      height: 15px;
+      background-color: $dot-bg;
+      font-size: 0;
+      border-radius: 15px;
+      transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
+      &:focus {
+        box-shadow: 0 0 0 2px $accent;
+      }
+
+      &:hover {
+        background-color: $dot-hover;
+        box-shadow: 0 0 0 2px rgba($accent, 0.70);
+
+        @include mq('tablet-3') {
+          background-color: $dot-bg;
+          box-shadow: none;
+        }
+      }
+
+      &:active {
+        background-color: $btn-bg;
+        box-shadow: none;
+      }
+    }
+
+    .slick-active button {
+      background-color: $accent;
+
+      &:hover {
+        background-color: $accent;
+      }
+    }
+  }
+}
