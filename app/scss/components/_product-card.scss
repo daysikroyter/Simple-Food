@@ -1,0 +1,51 @@
+.product-card {
+  text-align: center;
+  border-radius: 5px;
+  background-color: $white;
+  box-shadow: 0 0 0 1px $border;
+  padding: 20px 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.5s ease;
+
+  &:hover {
+    box-shadow: 0 0 0 1px $accent;
+
+    @include mq('tablet-3') {
+      box-shadow: 0 0 0 1px $border;
+    }
+  }
+
+  &__img {
+    margin: 0 auto 10px;
+    height: 140px;
+    width: 140px;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 15px;
+    @extend %rubik-400;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: $default;
+    @include line-clamp(2);
+    min-height: 36px;
+  }
+
+  &__price {
+    @extend %rubik-500;
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    margin-top: auto;
+    display: block;
+  }
+
+  &__btn {
+    padding: 7px 16px;
+    font-size: 14px;
+    align-self: center;
+  }
+}

@@ -1,0 +1,65 @@
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'libs';
+@import 'mixin';
+@import 'global';
+
+// header
+
+@import 'components/nav';
+@import 'components/logo';
+@import 'components/menu';
+@import 'components/user-nav';
+@import 'components/burger-btn';
+@import 'components/burger-btn';
+@import 'components/menu-burger';
+
+// top
+
+@import 'components/page_index/hero';
+
+// categories
+
+@import 'components/page_index/popular-categories';
+
+// features
+
+@import 'components/page_index/features';
+
+// restaurants
+
+@import 'components/page_index/restaurants';
+
+// reviews
+
+@import 'components/page_index/reviews';
+
+// app
+
+@import 'components/app';
+
+// footer
+
+@import 'components/footer';
+@import 'components/address';
+
+// breadcrumbs
+
+@import 'components/breadcrumbs';
+
+//
+
+@import 'components/page_catalog/shop';
+
+// promotions
+
+@import 'components/page_catalog/promotions';
+
+//
+
+@import 'components/page_product/explore';
+
+//
+
+@import 'components/page_product/product';

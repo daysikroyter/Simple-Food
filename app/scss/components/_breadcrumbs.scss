@@ -1,0 +1,43 @@
+.top {
+  background-color: rgba($btn-main-bg, 0.10);
+
+  .breadcrumbs {
+    padding: 24px 0;
+    display: flex;
+
+    &__item {
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0.42px;
+      color: #505050;
+
+      &--responsive {
+        @include mq('phone-3') {
+          display: none;
+        }
+      }
+    }
+
+    &__item:not(:first-child) {
+      padding-left: 17px;
+      position: relative;
+
+      &::before {
+        @extend %pseudo;
+        @extend %bg;
+        background-image: url('../images/icons/angle-right.svg');
+        width: 6px;
+        height: 10px;
+        position: absolute;
+        left: 6px;
+        top: 3px;
+      }
+    }
+
+    .breadcrumbs__link {
+      &--disabled {
+        cursor: text;
+      }
+    }
+  }
+}
