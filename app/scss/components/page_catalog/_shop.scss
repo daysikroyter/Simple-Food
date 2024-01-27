@@ -174,7 +174,21 @@
     width: 270px;
 
     @include mq('tablet') {
-      display: none;
+      position: fixed;
+      width: 320px;
+      height: 100vh;
+      background-color: $white;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      overflow-y: auto;
+      padding: 80px 0;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+
+      &--active {
+        transform: translateX(0);
+      }
     }
   }
 
@@ -183,8 +197,53 @@
     border: 1px solid $border;
     background-color: $white;
 
-    &:not(:first-child) {
+    &:nth-child(n + 3) {
       margin-top: 30px;
+    }
+
+    @include mq('tablet') {
+      width: 270px;
+    }
+
+    &--close {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: $checkbox;
+      border-radius: 3px;
+      top: 20px;
+      right: 20px;
+      display: none;
+
+      @include mq('tablet') {
+        display: block;
+      }
+    }
+  }
+
+  &__filters-btn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+
+    &::before,
+    &::after {
+      @extend %pseudo;
+      width: 20px;
+      height: 2px;
+      background-color: $title;
+      left: 10px;
+    }
+
+    &::before {
+      top: 17px;
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      bottom: 19px;
+      transform: rotate(-45deg);
     }
   }
 
@@ -404,64 +463,6 @@
     @include mq('phone-3') {
       grid-template-columns: repeat(2, 1fr);
       gap: 10px 5px;
-    }
-  }
-
-  .filter-menu {
-    position: fixed;
-    width: 320px;
-    height: 100vh;
-    background-color: $white;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    overflow-y: auto;
-    padding: 80px 0;
-    display: none;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
-
-    &--active {
-      transform: translateX(0);
-    }
-
-    @include mq('tablet') {
-      display: block;
-    }
-
-    .shop__filters {
-      @include mq('tablet') {
-        display: block;
-      }
-    }
-
-    &__btn {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: $checkbox;
-      border-radius: 3px;
-      top: 20px;
-      right: 20px;
-
-      &::before,
-      &::after {
-        @extend %pseudo;
-        width: 20px;
-        height: 2px;
-        background-color: $title;
-        left: 10px;
-      }
-
-      &::before {
-        top: 19px;
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        bottom: 19px;
-        transform: rotate(-45deg);
-      }
     }
   }
 }

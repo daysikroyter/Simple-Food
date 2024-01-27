@@ -73,7 +73,7 @@ function scripts() {
     'node_modules/jquery-form-styler/dist/jquery.formstyler.js',
     'node_modules/ion-rangeslider/js/ion.rangeSlider.js',
     'node_modules/rateyo/src/jquery.rateyo.js',
-    'node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js',
+    'node_modules/@fancyapps/ui/dist/fancybox.umd.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
@@ -102,7 +102,10 @@ function build() {
   return src([
     'app/**/*.html',
     'app/css/style.min.css',
-    'app/js/main.min.js'
+    'app/js/main.min.js',
+    'app/images/**/*.*',
+    'app/images/icons/sprites/sprite.svg',
+    'app/fonts/*.*',
   ], {base: 'app'})
   .pipe(dest('dist'))
 }

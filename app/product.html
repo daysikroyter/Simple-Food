@@ -67,10 +67,10 @@
         </button>
         <ul class="menu">
           <li class="menu__item">
-            <a class="menu__link link menu__link--active" href="#">Главная</a>
+            <a class="menu__link link @activeClass" href="index.html">Главная</a>
           </li>
           <li class="menu__item">
-            <a class="menu__link link" href="#">Блюда</a>
+            <a class="menu__link link link--active" href="catalog.html">Блюда</a>
           </li>
           <li class="menu__item">
             <a class="menu__link link" href="#">Контакты</a>
@@ -133,7 +133,7 @@
         <a class="breadcrumbs__link" href="catalog.html">Каталог товаров</a>
       </li>
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link breadcrumbs__link--disabled" href="catalog.html">Чизбургер с листьями салата</a>
+        <span class="breadcrumbs__link breadcrumbs__link--disabled">Чизбургер с листьями салата</span>
       </li>
     </ul>
   </div>
@@ -145,24 +145,41 @@
       <div class="product__slider">
         <ul class="product__slider-list">
           <li class="product__item">
-            <a class="product__link" href="images/product-img.jpg" data-fancybox="gallery">
+            <button class="product__item-btn" type="button">
               <img class="product__img" width="400px" height="400px" src="images/product-img.jpg"
                 alt="Чизбургер с листьями салата">
-            </a>
+            </button>
           </li>
           <li class="product__item">
-            <a class="product__link" href="images/product-img.jpg" data-fancybox="gallery">
+            <button class="product__item-btn" type="button">
               <img class="product__img" width="400px" height="400px" src="images/product-img.jpg"
                 alt="Чизбургер с листьями салата">
-            </a>
+            </button>
           </li>
           <li class="product__item">
-            <a class="product__link" href="images/product-img.jpg" data-fancybox="gallery">
+            <button class="product__item-btn" type="button">
               <img class="product__img" width="400px" height="400px" src="images/product-img.jpg"
                 alt="Чизбургер с листьями салата">
-            </a>
+            </button>
           </li>
         </ul>
+        <div class="product__slider-popup">
+          <button class="product__slider-btn" type="button"></button>
+          <ul class="product__slider-carousel">
+            <li class="product__item">
+              <img class="product__slider-img"  src="images/product-img.jpg"
+                alt="Чизбургер с листьями салата">
+            </li>
+            <li class="product__item">
+              <img class="product__slider-img"  src="images/product-img.jpg"
+                alt="Чизбургер с листьями салата">
+            </li>
+            <li class="product__item">
+              <img class="product__slider-img"  src="images/product-img.jpg"
+                alt="Чизбургер с листьями салата">
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="product__info">
         <h1 class="title product__title">

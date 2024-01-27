@@ -67,10 +67,10 @@
         </button>
         <ul class="menu">
           <li class="menu__item">
-            <a class="menu__link link menu__link--active" href="#">Главная</a>
+            <a class="menu__link link @activeClass" href="index.html">Главная</a>
           </li>
           <li class="menu__item">
-            <a class="menu__link link" href="#">Блюда</a>
+            <a class="menu__link link link--active" href="catalog.html">Блюда</a>
           </li>
           <li class="menu__item">
             <a class="menu__link link" href="#">Контакты</a>
@@ -130,7 +130,7 @@
         <a class="breadcrumbs__link" href="index.html">Главная</a>
       </li>
       <li class="breadcrumbs__item">
-        <a class="breadcrumbs__link breadcrumbs__link--disabled" href="catalog.html">Каталог товаров</a>
+        <span class="breadcrumbs__link breadcrumbs__link--disabled">Каталог товаров</span>
       </li>
     </ul>
   </div>
@@ -159,91 +159,12 @@
           <option value="option3">3</option>
         </select>
       </form>
-      <div class="filter-menu">
-        <button class="filter-menu__btn" type="button">
-          <span class="sr-only">закрыть фильтр меню</span>
-        </button>
-        <ul class="shop__filters">
-          <li class="shop__filters-item">
-            <h2 class="shop__title">
-              Категории
-            </h2>
-            <ul class="shop__filters-list shop__filters-content">
-              <li class="shop__item">
-                <a class="shop__link link--active link" href="#">Бургеры</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Пицца</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Сендвичи</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Азиатская кухня</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Сеты</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Европейская кухня</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Напитки</a>
-              </li>
-              <li class="shop__item">
-                <a class="shop__link link" href="#">Алкоголь</a>
-              </li>
-            </ul>
-          </li>
-          <li class="shop__filters-item">
-            <h2 class="shop__title">
-              Предложения
-            </h2>
-            <form class="shop__filters-form shop__filters-content" action="#">
-              <label class="shop__filters-label">
-                <input class="shop__filters-input" type="checkbox">
-                <span class="shop__filters-checkbox"></span>
-                <span class="shop__filters-text">Со скидкой</span>
-              </label>
-              <label class="shop__filters-label">
-                <input class="shop__filters-input" type="checkbox">
-                <span class="shop__filters-checkbox"></span>
-                <span class="shop__filters-text">Новинка</span>
-              </label>
-              <label class="shop__filters-label">
-                <input class="shop__filters-input" type="checkbox">
-                <span class="shop__filters-checkbox"></span>
-                <span class="shop__filters-text">Хит</span>
-              </label>
-            </form>
-          </li>
-          <li class="shop__filters-item">
-            <h2 class="shop__title">
-              Цена
-            </h2>
-            <form class="shop__filters-form shop__filters-range shop__filters-content" action="#">
-              <div class="shop__rangle-box">
-                <span class="shop__filters-inner">
-                  от
-                  <input type="number" class="js-input-from shop__filters-price" value="0">
-                  <span class="shop__filters-currency">₴</span>
-                </span>
-                <span class="shop__filters-inner">
-                  до
-                  <input type="number" class="js-input-to shop__filters-price" value="0">
-                  <span class="shop__filters-currency">₴</span>
-                </span>
-              </div>
-              <div class="range-slider">
-                <input type="text" class="js-range-slider" value="">
-              </div>
-            </form>
-          </li>
-        </ul>
-      </div>
     </div>
     <div class="shop__inner">
       <ul class="shop__filters">
+        <li class="shop__filters-item shop__filters-item--close">
+          <button class="shop__filters-btn" type="button"></button>
+        </li>
         <li class="shop__filters-item">
           <h2 class="shop__title">
             Категории

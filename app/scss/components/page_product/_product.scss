@@ -40,6 +40,176 @@
     }
   }
 
+  &__item {
+    text-align: center;
+  }
+
+  &__img {
+    margin: 0 auto;
+  }
+
+  &__slider-btn {
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    position: absolute;
+    right: 26px;
+    top: 26px;
+
+    &::before,
+    &::after {
+      width: 32px;
+      height: 2px;
+      @extend %pseudo;
+      background-color: rgba($black, 0.15);
+      right: 6px;
+      border-radius: 1px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__slider-popup {
+    position: absolute;
+    z-index: -1;
+    background-color: $white;
+    right: 96px;
+    left: 96px;
+    top: 54px;
+    bottom: 54px;
+    padding: 60px 120px 87px;
+    opacity: 0;
+    border-radius: 15px;
+    transition: opacity 0.5s ease;
+
+    @include mq-height('mobile-height') {
+      inset: 30px;
+      padding: 60px;
+    }
+
+    @include mq('tablet-2') {
+      inset: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px;
+    }
+
+    &--active {
+      z-index: 15;
+      opacity: 1;
+    }
+
+    .product__slider-carousel {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .product__item {
+      width: 100%;
+    }
+
+    .product__slider-img {
+      max-width: 750px;
+      width: 100%;
+      max-height: 750px;
+      height: 100%;
+      margin: 0 auto;
+
+      @include mq-height('mobile-height-l') {
+        max-width: 350px;
+      }
+
+      @include mq-height('mobile-height') {
+        max-width: 250px;
+      }
+
+      @include mq-height('mobile-height-2') {
+        max-width: 150px;
+      }
+    }
+
+    .slick-dots {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      bottom: 20px;
+
+      @include mq-height('mobile-height') {
+        bottom: 0;
+      }
+
+      @include mq('phone-3') {
+        bottom: 0;
+      }
+
+      li button {
+        font-size: 0;
+        width: 15px;
+        height: 15px;
+        background-color: $dot-bg;
+        font-size: 0;
+        border-radius: 15px;
+        transition: box-shadow 0.5s ease, background-color 0.5s ease;
+
+        &:focus {
+          box-shadow: 0 0 0 2px $accent;
+        }
+
+        &:hover {
+          background-color: $dot-hover;
+          box-shadow: 0 0 0 2px rgba($accent, 0.70);
+
+          @include mq('tablet-3') {
+            background-color: $dot-bg;
+            box-shadow: none;
+          }
+        }
+
+        &:active {
+          background-color: $btn-bg;
+          box-shadow: none;
+        }
+      }
+
+      .slick-active button {
+        background-color: $accent;
+
+        &:hover {
+          background-color: $accent;
+        }
+      }
+    }
+
+    .slick-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 21;
+      width: 60px;
+      height: 60px;
+      @extend %flex;
+    }
+
+    .arrow-next {
+      right: -60px;
+      transform: scale(-1, 1) translateY(-50%);
+    }
+
+    .arrow-prev {
+      left: -60px;
+    }
+  }
+
   &__link {
     width: 100%;
 
@@ -344,6 +514,10 @@
     min-height: 0;
   }
 
+  &__reviews {
+    margin-top: 10px;
+  }
+
   &__descr {
     opacity: 0.9;
 
@@ -392,7 +566,6 @@
       line-height: 1.2%;
       letter-spacing: 0.72px;
       margin-bottom: 50px;
-      margin-top: 10px;
       display: block;
 
       @include mq('tablet') {
