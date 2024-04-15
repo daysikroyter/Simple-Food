@@ -1,0 +1,58 @@
+.page-404 {
+    padding: 20px 0;
+  
+  &__inner {
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right center;
+    position: relative;
+    padding: 100px 0;
+  
+    @include mq('tablet-3') {
+      padding: 50px 0;
+    }
+
+    &::before {
+      @extend %pseudo;
+      @extend %section-bg;
+
+      @include mq('large-desktop') {
+        opacity: .9;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 500px;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__title {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    @include line-clamp(3);
+
+    span {
+      display: block;
+      color: $accent;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    @include line-clamp(5);
+  }
+
+  &__link {
+    padding: 12px 32px;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+}
