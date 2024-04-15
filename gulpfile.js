@@ -107,7 +107,7 @@ function build() {
     'app/images/icons/sprites/sprite.svg',
     'app/fonts/*.*',
   ], {base: 'app'})
-  .pipe(dest('./'))
+  .pipe(dest('./dist'))
 }
 
 function cleanDist() {
